@@ -5,6 +5,11 @@ Verified on this machine: MATLAB R2015a, Visual Studio 2015, CUDA 11.0
 The installed CUDA root is `C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.0`.
 The cuDNN root is its nested `cuda` directory, with `include`, `lib/x64`, and `bin`.
 
+MatConvNet is an external dependency and is not stored in this repository.
+Obtain the documented source and reviewed binaries from the companion archive
+and place its CPU/GPU build directories under `matconvnet/`, or supply the source
+and compile it as described below. Dependency directories are ignored by Git.
+
 From this repository's root in MATLAB:
 
 ```matlab
@@ -19,9 +24,7 @@ To select the preserved CPU build:
 Setup_thesis_matconvnet(false);
 ```
 
-The original demo scripts already have a `useGPU` switch. Select the GPU
-build before running them, and set `useGPU = 1` in the chosen demo. For the
-experiment helper, GPU input selects GPU execution:
+For the experiment helper, GPU input selects GPU execution:
 
 ```matlab
 y = gpuArray(im2single(imread('testsets/BSD68/test001.png')));
@@ -74,10 +77,10 @@ adapted and checked numerically; it is not a claim of official support for
 this software/hardware combination. Reproduction and committee handover
 instructions are in [REPRODUCIBILITY.md](REPRODUCIBILITY.md).
 
-- [`logs/thesis_cuda_check.log`](logs/thesis_cuda_check.log): standalone CUDA kernel, cuBLAS multiplication, and
+- `logs/thesis_cuda_check.log` (in the companion archive): standalone CUDA kernel, cuBLAS multiplication, and
   cuDNN convolution passed on the RTX 4070.
-- [`logs/thesis_matconvnet_gpu_link.log`](logs/thesis_matconvnet_gpu_link.log): GPU MEX linking and startup check passed.
-- [`logs/thesis_matconvnet_gpu_model_check.log`](logs/thesis_matconvnet_gpu_model_check.log): dilations 1/2/3/4 checked on GPU,
+- `logs/thesis_matconvnet_gpu_link.log` (in the companion archive): GPU MEX linking and startup check passed.
+- `logs/thesis_matconvnet_gpu_model_check.log` (in the companion archive): dilations 1/2/3/4 checked on GPU,
   with and without cuDNN; grayscale and RGB supplied networks checked at
   denoiser sigma 2/25/50 against CPU inference.
 - Full-image sigma-25 check: CPU PSNR 25.91000 dB, GPU 25.90999 dB;

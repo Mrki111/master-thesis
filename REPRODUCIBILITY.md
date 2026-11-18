@@ -114,34 +114,15 @@ the runner cached were attached after completion with
 were preserved exactly. Fresh runs with the supplied final source write these
 labels and the fixed BM3D selections directly.
 
-## Committee handover
+## Companion archive
 
-Use `tools/package_reproduction.py` with Python 3.11 or newer to create a
-local ZIP with code, configurations, original models, datasets, the MatConvNet
-source, selected MEX files, saved observations, CSV/MAT records and a SHA-256
-manifest. MATLAB and NVIDIA redistributables and the restricted BM3D package
-are obtained separately. Internal Word drafts, personal authoring history and
-unrelated files are excluded. No licence for third-party datasets or models is
-implied; retain their source attribution and use the package for thesis review.
+This Git repository contains the thesis experiment code and configurations only.
+Obtain `IRCNN_reprodukcija_20261118_v2.zip` from the author for MatConvNet, original
+models, datasets, kernels, saved observations, CSV/MAT records and verification logs.
+Place its dependency and data directories under the repository root as described
+in the README, retaining the required licence notices. MATLAB, CUDA/cuDNN where
+applicable, and the restricted BM3D package are obtained separately.
 
-The package can be sent to the mentor on request. Publishing to a GitHub account
-and sending email are separate actions; no repository URL is inserted in the thesis.
-
-The recommended handovers are `release/IRCNN_reprodukcija_20261118_v2.zip`
-and `release/IRCNN_kod_i_konfiguracije_20261118_v2.zip`. Version 2 adds portable
-parent-run resolution and read-only verification of previously reviewed records;
-the scientific computations, configurations and saved measurements are unchanged.
-The compact code ZIP omits models, image data, observations and compiled binaries.
-Use the full archive to run the experiments; the compact ZIP is intended for code
-review. MATLAB and the documented external dependencies are still required.
-
-To build new handovers without overwriting a preserved archive:
-
-```powershell
-python tools/package_reproduction.py --output release/IRCNN_reprodukcija_20261118_v2.zip
-python tools/package_source.py --full release/IRCNN_reprodukcija_20261118_v2.zip --output release/IRCNN_kod_i_konfiguracije_20261118_v2.zip
-python tools/verify_release.py release/IRCNN_reprodukcija_20261118_v2.zip release/IRCNN_kod_i_konfiguracije_20261118_v2.zip
-```
-
-The builders refuse to overwrite existing archives. Choose another output name
-if repeating the packaging step.
+The full archive also contains historical source snapshots, the one-time
+configuration-annotation script and optional packaging/checksum tools. Those
+supporting artifacts are not part of this minimal code/configuration repository.

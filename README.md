@@ -1,34 +1,32 @@
-# Master thesis code and configurations
+# Master thesis experiment code and configurations
 
-MATLAB code and experiment configurations accompanying Lazar Mrkic's master
-thesis on convolutional neural networks for image denoising and restoration.
-The experiments use published pretrained IRCNN networks without additional training.
+MATLAB experiment code accompanying Lazar Mrkic's thesis on CNN image denoising
+and restoration. The experiments use pretrained IRCNN models without additional training.
 
-## Contents
+## Included
 
-- Experiment runners for denoising, deblurring and super-resolution.
-- Original and expanded validation grids, fixed seeds and metric conventions.
-- BM3D comparison and RGB verification code.
-- MatConvNet source, CPU/GPU setup code and the local cuDNN compatibility adapter.
-- Numerical tests, saved-result verification and packaging/checksum utilities.
+- Six experiment, setup and verification entry points in the repository root.
+- `experiments/`: fixed configurations, restoration code and local setup adapters.
+- `utilities/`: the eight helpers required by those experiments and tests.
+- Reproduction instructions and source attribution.
 
-This repository contains source code, configurations and documentation. Models,
-datasets, saved observations, experiment records, compiled binaries and the thesis
-document are provided separately by the author. The full companion archive is
-`IRCNN_reprodukcija_20261118_v2.zip`; its evidence and required research inputs
-are needed to reproduce or verify the saved thesis experiments.
+MatConvNet, upstream demo projects, models, datasets, saved results, compiled
+binaries and the thesis document are supplied separately. Obtain the full
+`IRCNN_reprodukcija_20261118_v2.zip` companion archive from the author for the
+documented research inputs, MatConvNet dependency and historical verification data.
+Place its `models/`, `testsets/`, `kernels/`, `results/` and `matconvnet/`
+directories beside these entry points when reproducing the saved experiments.
+These dependency and data directories are ignored by Git.
 
-## Reproduction
+## Running
 
-Read [REPRODUCIBILITY.md](REPRODUCIBILITY.md) for the complete protocol and commands,
-[THESIS_EXPERIMENTS.md](THESIS_EXPERIMENTS.md) for configurations and metrics, and
-[MATCONVNET_SETUP.md](MATCONVNET_SETUP.md) for the documented software environment.
-Supply the companion archive's input directories and appropriate MEX binaries,
-or compile MatConvNet using the setup instructions. MATLAB and its required
-toolboxes are obtained separately. Obtain the restricted legacy BM3D package
-through `Install_thesis_bm3d.ps1`; BM3D is not redistributed here.
+Read [REPRODUCIBILITY.md](REPRODUCIBILITY.md),
+[THESIS_EXPERIMENTS.md](THESIS_EXPERIMENTS.md) and
+[MATCONVNET_SETUP.md](MATCONVNET_SETUP.md). MATLAB and its required toolboxes are
+obtained separately. The BM3D download helper obtains the restricted implementation
+separately and checks its reviewed archive hash.
 
-With those dependencies and inputs available, run from the repository root:
+With the documented inputs and compiled dependencies available:
 
 ```matlab
 Setup_thesis_matconvnet(false, [], 'cpu');
@@ -37,16 +35,8 @@ folder = Run_thesis_experiments('smoke', 'cpu');
 Test_thesis_experiments(folder);
 ```
 
-The version 2 handover passed an extracted-copy CPU smoke run (41 task/method
-results matching the recorded PSNR/SSIM values) and verification of 5,084 saved
-results. See [RELEASE_VERIFICATION.md](RELEASE_VERIFICATION.md) for scope and limits.
-Verification resolves parent results relative to a relocated package and preserves
-already verified historical records.
-
 ## Attribution
 
 Based on [IRCNN by Kai Zhang, Wangmeng Zuo, Shuhang Gu and Lei Zhang](https://github.com/cszn/IRCNN),
 *Learning Deep CNN Denoiser Prior for Image Restoration*, CVPR 2017.
-The original project README is retained in [IRCNN_README.md](IRCNN_README.md).
-MatConvNet's licence notices are retained in its `COPYING` files.
-See [THIRD_PARTY.md](THIRD_PARTY.md). No new licence is imposed on third-party code.
+Original notices remain in the helper source. See [THIRD_PARTY.md](THIRD_PARTY.md).

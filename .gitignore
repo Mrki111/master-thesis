@@ -28,3 +28,7 @@
 **/build/
 **/__pycache__/
 *.pyc
+
+# External library source and unrelated upstream demos
+/matconvnet/
+/Demo_*.m

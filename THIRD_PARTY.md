@@ -1,15 +1,17 @@
-# Third-party attribution
+# Source attribution and external dependencies
 
-IRCNN code and pretrained-network methodology originate from Kai Zhang,
-Wangmeng Zuo, Shuhang Gu and Lei Zhang, CVPR 2017. Retain the original source
-notices and consult https://github.com/cszn/IRCNN for the upstream project.
+The experiments build on IRCNN by Kai Zhang, Wangmeng Zuo, Shuhang Gu and
+Lei Zhang, CVPR 2017: https://github.com/cszn/IRCNN.
 
-MatConvNet 1.0-beta25 source is included with its original `COPYING` notices in
-both `matconvnet/` source directories. The local setup and cuDNN compatibility
-adapter are described in `MATCONVNET_SETUP.md`.
+Required helper files retain their original author and permission notices,
+including the PSNR/SSIM implementation, sampling operators and Shepard interpolation.
+Those notices apply to the corresponding source and are not replaced here.
 
-The authors' restricted BM3D package, pretrained weights, datasets, compiled
-libraries and MATLAB/NVIDIA dependencies are obtained separately. Follow their
-respective terms. The download helper checks the reviewed BM3D archive hash.
+MatConvNet 1.0-beta25 is an external dependency. Its source, demos and compiled
+binaries are not included in this repository. Preserve its `COPYING` notice when
+obtaining it from its authors or the companion archive. The local cuDNN adapter
+and setup configuration are included under `experiments/setup/`.
 
-This repository does not grant a new licence to third-party material.
+BM3D, pretrained weights, datasets, MATLAB and NVIDIA libraries are obtained
+separately under their respective terms. This repository grants no new licence
+to third-party material.
