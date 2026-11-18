@@ -1,0 +1,30 @@
+# Research inputs, generated records and handover archives
+/models/
+/testsets/
+/kernels/
+/results/
+/logs/
+/release/
+/thesis/
+/figs/
+*.mat
+*.zip
+*.docx
+*.pdf
+*.log
+
+# Compiled and external dependencies
+*.mexw64
+*.mexa64
+*.mexmaci64
+*.dll
+*.obj
+*.pdb
+*.lib
+*.exp
+*.exe
+/experiments/third_party/
+/experiments/.runtime/
+**/build/
+**/__pycache__/
+*.pyc
